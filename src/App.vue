@@ -2,7 +2,9 @@
   <div class="wraper">
     <header class="header">
       <h1>Sorting Training System</h1>
-      <button @click="startSorting">Start sorting !</button>
+      <button @click="startSorting" v-if="showSortingBtn">
+        Start sorting !
+      </button>
     </header>
     <PeaopleList
       v-if="showPeaopleList"
@@ -12,7 +14,11 @@
       @showSuccessCard="this.showSuccessCard = $event"
       @clearInterval="clearInterval"
     />
-    <ModalCard v-if="showModalCard" @howManyUser="handleHowManyUser" />
+    <ModalCard
+      v-if="showModalCard"
+      @howManyUser="handleHowManyUser"
+      @cancel="this.showModalCard = $event"
+    />
   </div>
   <ModalSuccess
     :formattedTime="formattedTime"
@@ -32,6 +38,7 @@ export default {
   data() {
     return {
       usersCount: null,
+      showSortingBtn: true,
       showPeaopleList: false,
       showModalCard: false,
       showSuccessCard: false,
@@ -46,11 +53,14 @@ export default {
       this.showModalCard = true
     },
     handleHowManyUser(count) {
+      this.showSortingBtn = false
+
       this.usersCount = Number(count)
       this.showPeaopleList = true
 
       this.timer = this.startTimer()
     },
+
     // Hiding enter modal and starting timer
     startTimer() {
       this.showModalCard = false
@@ -68,13 +78,13 @@ export default {
     },
     clearInterval() {
       window.clearInterval(this.endTimer)
-      this.currentTimer = 0
-      // this.formattedTime = '00:00:00'
     },
+
     // The end of sorting
     endSorting() {
       this.showPeaopleList = false
       this.showSuccessCard = false
+      this.showSortingBtn = true
     },
   },
 }

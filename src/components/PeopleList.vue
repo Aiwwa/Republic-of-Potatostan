@@ -17,7 +17,10 @@
       >
         <template #item="{element}">
           <tr>
-            <td>{{ element.email }}</td>
+            <td class="ch_input">
+              <div><input type="checkbox" /></div>
+              {{ element.email }}
+            </td>
             <td>{{ element.patatoes }}</td>
             <td>
               <span>{{ element.customerInfo['role'] }}</span>
@@ -69,6 +72,7 @@ export default {
       .then((data) => data.json())
       .then((res) => {
         this.users = res.results
+
         // Random number without duplicates
         let nums = []
         for (let i = 1; i < this.usersCount + 1; i++) {
@@ -111,9 +115,19 @@ th {
   background-color: #b3b3b3;
   color: white;
   width: 300px;
+  padding: 10px;
 }
 
 td {
   padding: 10px;
+}
+
+.ch_input {
+  display: flex;
+  align-content: center;
+  justify-content: flex-start;
+}
+.ch_input div {
+  margin-right: 10px;
 }
 </style>
