@@ -9,7 +9,9 @@
       :style="{ border: `2px solid ${inputValid}` }"
     />
     <div>
-      <div @click="cancel" type="button" value="cancel">Cancel</div>
+      <div @click="cancel" type="button" value="cancel">
+        Cancel
+      </div>
       <button>Start</button>
     </div>
   </form>
@@ -34,6 +36,7 @@ export default {
       this.$emit('cancel', false)
     },
   },
+
   watch: {
     usersNum: function () {
       if (this.usersNum >= 20 && this.usersNum <= 100) {
@@ -51,5 +54,10 @@ export default {
 <style>
 input:focus {
   outline: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
 }
 </style>
