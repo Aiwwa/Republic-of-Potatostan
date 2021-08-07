@@ -1,6 +1,12 @@
 <template>
   <div class="users__wraper">
-    <div>{{ this.users.length }} peoples in the list</div>
+    <div class="users__wraper__header">
+      <div>
+        <div>Timer started: {{ formattedTime }}</div>
+        <button @click="cancelPeaopleList">cancel</button>
+      </div>
+      <div>{{ this.users.length }} peoples in the list</div>
+    </div>
     <table id="customers">
       <tr>
         <th>Email</th>
@@ -38,7 +44,7 @@
 <script>
 import draggable from 'vuedraggable'
 export default {
-  props: ['usersCount', 'timer', 'showSuccessCard'],
+  props: ['usersCount', 'timer', 'showSuccessCard', 'formattedTime'],
   components: { draggable },
   data() {
     return {
@@ -65,6 +71,9 @@ export default {
       }
 
       console.log(this.isSorted)
+    },
+    cancelPeaopleList() {
+      this.$emit('cancelPeaopleList')
     },
   },
   mounted() {
@@ -108,6 +117,10 @@ export default {
 </script>
 
 <style>
+.users__wraper__header {
+  display: flex;
+  justify-content: space-between;
+}
 th {
   padding-top: 12px;
   padding-bottom: 12px;

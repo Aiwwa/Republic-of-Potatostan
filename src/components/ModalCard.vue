@@ -12,6 +12,7 @@
       <div @click="cancel" type="button" value="cancel">
         Cancel
       </div>
+      <!-- <div @click="start" type="button" value="cancel">Start</div> -->
       <button>Start</button>
     </div>
   </form>

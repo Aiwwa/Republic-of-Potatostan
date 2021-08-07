@@ -13,6 +13,7 @@
       :formattedTime="formattedTime"
       @showSuccessCard="this.showSuccessCard = $event"
       @clearInterval="clearInterval"
+      @cancelPeaopleList="cancelPeaopleList"
     />
     <ModalCard
       v-if="showModalCard"
@@ -77,6 +78,11 @@ export default {
       return MHSTime
     },
     clearInterval() {
+      window.clearInterval(this.endTimer)
+    },
+    cancelPeaopleList() {
+      this.showPeaopleList = false
+      this.showSortingBtn = true
       window.clearInterval(this.endTimer)
     },
 
