@@ -1,11 +1,16 @@
 <template>
   <div class="wraper">
-    <header class="header">
+    <header class="header d_flex_sp_between">
       <h1>Sorting Training System</h1>
       <button @click="startSorting" v-if="showSortingBtn">
         Start sorting !
       </button>
     </header>
+    <ModalSuccess
+      :formattedTime="formattedTime"
+      v-if="showSuccessCard"
+      @endSorting="endSorting"
+    />
     <PeaopleList
       v-if="showPeaopleList"
       :usersCount="usersCount"
@@ -21,11 +26,6 @@
       @cancel="this.showModalCard = $event"
     />
   </div>
-  <ModalSuccess
-    :formattedTime="formattedTime"
-    v-if="showSuccessCard"
-    @endSorting="endSorting"
-  />
 </template>
 
 <script>
@@ -80,12 +80,13 @@ export default {
     clearInterval() {
       window.clearInterval(this.endTimer)
     },
+    // Cancel sorting
     cancelPeaopleList() {
-      this.showPeaopleList = false
-      this.showSortingBtn = true
       window.clearInterval(this.endTimer)
+      this.showPeaopleList = false
+      this.showSuccessCard = false
+      this.showSortingBtn = true
     },
-
     // The end of sorting
     endSorting() {
       this.showPeaopleList = false
@@ -103,13 +104,26 @@ export default {
   box-sizing: border-box;
 }
 
+/* Reusable classes */
+
+.d_flex_sp_between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+body {
+  background-color: #f5f5f5;
+  color: #000000;
+  font-weight: 700;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Roboto', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  width: 1138px;
+  padding: 64px 72px;
 }
 
 .wraper {
@@ -118,8 +132,18 @@ export default {
   margin: 30px;
 }
 
-.header {
-  display: flex;
-  justify-content: space-between;
+.header button {
+  background: #ff8d00;
+  color: #ffffff;
+  padding: 15px 36px;
+  border: none;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+/* Table desing */
+
+.header h1 {
+  font-size: 32px;
 }
 </style>
