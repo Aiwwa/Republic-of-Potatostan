@@ -44,9 +44,6 @@
             </td>
             <td class="td_roles" :class="{ checkboxBg: element.checked }">
               <span class="pil">{{ element.customerInfo['role'] }}</span>
-              <span v-if="this.users.length > 22" class="pil">
-                {{ element.customerInfo['status'][1] }}
-              </span>
             </td>
             <td :class="{ checkboxBg: element.checked }">
               {{ element.name['first'] }} {{ element.name['last'] }}
