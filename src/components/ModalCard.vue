@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     start() {
-      if (this.usersNum >= 20 && this.usersNum <= 100) {
+      if (this.usersNum >= 4 && this.usersNum <= 100) {
         this.$emit('howManyUser', this.usersNum)
         this.usersNum = null
       } else {
@@ -46,7 +46,7 @@ export default {
 
   watch: {
     usersNum: function () {
-      if (this.usersNum >= 20 && this.usersNum <= 100) {
+      if (this.usersNum >= 4 && this.usersNum <= 100) {
         this.inputValid = '#1DB44E'
       } else if (this.usersNum == 0) {
         this.inputValid = '#CCCCCC'

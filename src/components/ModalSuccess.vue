@@ -37,9 +37,11 @@ export default {
   font-size: 13px;
   font-weight: 400;
   color: #555555;
-  padding: 20px 0;
+  padding: 20px;
   border-top: 1px solid #cccccc;
   border-bottom: 1px solid #cccccc;
+  background-color: #dfffea;
+  color: #00b83d;
 }
 
 .modal-success .results p {
