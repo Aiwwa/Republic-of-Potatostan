@@ -1,0 +1,31 @@
+[debug] [2021-08-09T05:20:35.244Z] ----------------------------------------------------------------------
+[debug] [2021-08-09T05:20:35.245Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only hosting
+[debug] [2021-08-09T05:20:35.245Z] CLI Version:   9.16.0
+[debug] [2021-08-09T05:20:35.246Z] Platform:      darwin
+[debug] [2021-08-09T05:20:35.246Z] Node Version:  v14.16.1
+[debug] [2021-08-09T05:20:35.246Z] Time:          Mon Aug 09 2021 08:20:35 GMT+0300 (Eastern European Summer Time)
+[debug] [2021-08-09T05:20:35.247Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2021-08-09T05:20:35.289Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2021-08-09T05:20:35.289Z] > authorizing via signed-in user (as.savinis@gmail.com)
+[debug] [2021-08-09T05:20:35.289Z] [iam] checking project potatostan-dbc09 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2021-08-09T05:20:35.291Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/potatostan-dbc09:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2021-08-09T05:20:36.089Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Mon, 09 Aug 2021 05:20:36 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=682","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-09T05:20:36.091Z] > refreshing access token with scopes: []
+[debug] [2021-08-09T05:20:36.091Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-09T05:20:36.193Z] <<< HTTP RESPONSE 200 {"expires":"Mon, 01 Jan 1990 00:00:00 GMT","pragma":"no-cache","date":"Mon, 09 Aug 2021 05:20:36 GMT","cache-control":"no-cache, no-store, max-age=0, must-revalidate","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-09T05:20:36.236Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/potatostan-dbc09 [none]
+[debug] [2021-08-09T05:20:36.489Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/potatostan-dbc09 200
+[debug] [2021-08-09T05:20:36.490Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/potatostan-dbc09 {"projectId":"potatostan-dbc09","projectNumber":"1092533865325","displayName":"Potatostan","name":"projects/potatostan-dbc09","resources":{"hostingSite":"potatostan-dbc09"},"state":"ACTIVE"}
+[info] 
+[info] === Deploying to 'potatostan-dbc09'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2021-08-09T05:20:36.493Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2021-08-09T05:20:36.493Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2021-08-09T05:20:36.598Z] <<< HTTP RESPONSE 200 {"cache-control":"no-cache, no-store, max-age=0, must-revalidate","date":"Mon, 09 Aug 2021 05:20:36 GMT","pragma":"no-cache","expires":"Mon, 01 Jan 1990 00:00:00 GMT","content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","server":"scaffolding on HTTPServer2","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3=\":443\"; ma=2592000,h3-29=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2021-08-09T05:20:36.643Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/potatostan-dbc09/versions  
+ {"config":{"rewrites":[{"glob":"**","path":"/index.html"}]},"labels":{"deployment-tool":"cli-firebase"}}
