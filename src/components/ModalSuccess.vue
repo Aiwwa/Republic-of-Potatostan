@@ -64,4 +64,14 @@ export default {
   cursor: pointer;
   font-weight: 700;
 }
+
+.close_btn button:hover {
+  background-color: #7a7a7a;
+  color: #ffffff;
+}
+
+.close_btn button:active {
+  background-color: #3b3b3b;
+  color: #ffffff;
+}
 </style>

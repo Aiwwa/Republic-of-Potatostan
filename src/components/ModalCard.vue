@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     start() {
-      if (this.usersNum >= 4 && this.usersNum <= 100) {
+      if (this.usersNum >= 20 && this.usersNum <= 100) {
         this.$emit('howManyUser', this.usersNum)
         this.usersNum = null
       } else {
@@ -46,7 +46,7 @@ export default {
 
   watch: {
     usersNum: function () {
-      if (this.usersNum >= 4 && this.usersNum <= 100) {
+      if (this.usersNum >= 20 && this.usersNum <= 100) {
         this.inputValid = '#1DB44E'
       } else if (this.usersNum == 0) {
         this.inputValid = '#CCCCCC'
@@ -78,6 +78,14 @@ form {
 .form_header i {
   color: #999999;
   cursor: pointer;
+}
+
+.form_header i:hover {
+  color: #7a7a7a;
+}
+
+.form_header i:active {
+  color: #3b3b3b;
 }
 
 .input_div {
@@ -127,6 +135,16 @@ input::-webkit-inner-spin-button {
   cursor: pointer;
 }
 
+.form_btns div:hover {
+  background-color: #7a7a7a;
+  color: #ffffff;
+}
+
+.form_btns div:active {
+  background-color: #3b3b3b;
+  color: #ffffff;
+}
+
 .form_btns button {
   padding: 12px 23px;
   background-color: #ff8d00;
@@ -135,5 +153,13 @@ input::-webkit-inner-spin-button {
   font-size: 14px;
   border: none;
   cursor: pointer;
+}
+
+.form_btns button:hover {
+  background-color: #ffae00;
+}
+
+.form_btns button:active {
+  background-color: #e57f00;
 }
 </style>

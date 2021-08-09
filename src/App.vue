@@ -141,6 +141,15 @@ body {
   font-size: 15px;
   cursor: pointer;
 }
+
+.header button:hover {
+  background-color: #ffae00;
+}
+
+.header button:active {
+  background-color: #e57f00;
+}
+
 /* Table desing */
 
 .header h1 {

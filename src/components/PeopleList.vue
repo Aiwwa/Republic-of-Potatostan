@@ -194,6 +194,25 @@ export default {
   color: #ffffff;
   cursor: pointer;
 }
+
+.form_btns button {
+  padding: 12px 23px;
+  background-color: #ff8d00;
+  color: #ffffff;
+  border-radius: 5px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.timer_info button:hover {
+  background-color: #ffae00;
+}
+
+.timer_info button:active {
+  background-color: #e57f00;
+}
+
 /* Table design */
 .customers {
   font-weight: 400;
