@@ -1,5 +1,10 @@
 # republic_of_potatostan
 
+https://potatostan-dbc09.web.app/
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/71601381/129037952-9b722fba-9ae4-49ad-beb5-0b2abacbbc78.gif)
+
+
 ## Project setup
 ```
 npm install
