@@ -56,7 +56,7 @@ export default {
           break
       }
 
-      if (this.usersNum >= 4 && this.usersNum <= 100) {
+      if (this.usersNum >= 5 && this.usersNum <= 100) {
         this.$emit('howManyUser', this.usersNum)
         this.usersNum = null
       } else {
