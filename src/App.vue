@@ -1,4 +1,11 @@
 <template>
+  <div class="success-wraper" v-if="showSuccessCard">
+    <ModalSuccess
+      :formattedTime="formattedTime"
+      v-if="showSuccessCard"
+      @endSorting="endSorting"
+    />
+  </div>
   <div class="wraper">
     <header class="header d_flex_sp_between">
       <h1>Sorting Training System</h1>
@@ -6,11 +13,7 @@
         Start sorting !
       </button>
     </header>
-    <ModalSuccess
-      :formattedTime="formattedTime"
-      v-if="showSuccessCard"
-      @endSorting="endSorting"
-    />
+
     <PeaopleList
       v-if="showPeaopleList"
       :usersCount="usersCount"
@@ -83,6 +86,8 @@ export default {
     // Cancel sorting
     cancelPeaopleList() {
       window.clearInterval(this.endTimer)
+      this.currentTimer = 0
+      this.formattedTime = '00:00:00'
       this.showPeaopleList = false
       this.showSuccessCard = false
       this.showSortingBtn = true
@@ -124,6 +129,19 @@ body {
   -moz-osx-font-smoothing: grayscale;
   width: 1138px;
   padding: 64px 72px;
+}
+
+.success-wraper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: #0000004f;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 3;
 }
 
 .wraper {

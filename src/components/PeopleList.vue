@@ -77,13 +77,13 @@ export default {
     },
     onEnd() {
       this.sortedArr = []
-      this.users.forEach((el) => this.sortedArr.unshift(el.patatoes))
+      this.users.forEach((el) => this.sortedArr.push(el.patatoes))
 
       let sortingArr = this.sortedArr
 
       // Returns true when array is sorted
       this.isSorted = !!sortingArr.reduce(
-        (n, num) => n !== false && num >= n && num,
+        (n, num) => n !== false && num <= n && num,
       )
 
       if (this.isSorted) {

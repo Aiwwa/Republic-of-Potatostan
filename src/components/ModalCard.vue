@@ -6,11 +6,19 @@
     </div>
     <div class="input_div">
       <p>Enter a number of how many people you want to add to the list.</p>
+      <div class="select">
+        <select name="pets" id="pet-select" v-model="difficultySelect">
+          <option value="">Choose difficulty</option>
+          <option value="easy">Easy (5 peolple)</option>
+          <option value="medium">Medium (10 peolple)</option>
+          <option value="hard">Hard (15 peolple)</option>
+        </select>
+      </div>
       <input
         type="number"
         v-model="usersNum"
         :style="{ border: `2px solid ${inputValid}` }"
-        placeholder="Enter number between 20 and 100"
+        placeholder="Enter number between 5 and 100"
       />
     </div>
     <div class="form_btns">
@@ -28,11 +36,27 @@ export default {
     return {
       usersNum: null,
       inputValid: ['#CCCCCC'],
+      difficultySelect: '',
     }
   },
   methods: {
     start() {
-      if (this.usersNum >= 20 && this.usersNum <= 100) {
+      switch (this.difficultySelect) {
+        case 'easy':
+          this.usersNum = 5
+          break
+        case 'medium':
+          this.usersNum = 10
+          break
+        case 'hard':
+          this.usersNum = 15
+          break
+
+        default:
+          break
+      }
+
+      if (this.usersNum >= 4 && this.usersNum <= 100) {
         this.$emit('howManyUser', this.usersNum)
         this.usersNum = null
       } else {
@@ -41,18 +65,6 @@ export default {
     },
     cancel() {
       this.$emit('cancel', false)
-    },
-  },
-
-  watch: {
-    usersNum: function () {
-      if (this.usersNum >= 20 && this.usersNum <= 100) {
-        this.inputValid = '#1DB44E'
-      } else if (this.usersNum == 0) {
-        this.inputValid = '#CCCCCC'
-      } else {
-        this.inputValid = '#B41D1D'
-      }
     },
   },
 }
@@ -117,6 +129,20 @@ form {
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
   -webkit-appearance: none;
+}
+
+.select {
+  margin-bottom: 10px;
+}
+
+.select select {
+  border-radius: 5px;
+  font-size: 13px;
+  border: 2px solid#cccccc;
+  border-radius: 5px;
+  color: #555555;
+  width: 400px;
+  padding: 5px 13px 5px 14px;
 }
 
 .form_btns {
